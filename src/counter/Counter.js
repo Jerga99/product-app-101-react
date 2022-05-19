@@ -1,30 +1,19 @@
 
+import { useState } from "react";
 import "./Counter.css";
 
 function Counter() {
-  let count = 100;
-
-  // const increment = (message) => {
-  //   count += 1;
-  //   console.log(count);
-
-  //   return () => {
-  //     console.log(message);
-  //   }
-  // }
-
+  const [count, setCount] = useState(100);
+  
   const increment = () => {
-    count += 1;
-    console.log(count);
+    setCount(count + 1);
   }
 
   return (
     <div className="counter-container">
       <div>{count}</div>
 
-      <button onClick={() => {
-        increment()
-      }}>
+      <button onClick={increment}>
         Increment
       </button>
 
