@@ -3,24 +3,21 @@
 export function ProductItem({product}) {
  
   return (
-    <div className={`product ${product.isOnStock ? "is-on-stock" : "is-not-on-stock"}`}>
-      <div className="product-field">
-        <span className="product-label">Name:</span>{product.name}
+    <div className="card">
+      <div className="card-image">
+        <figure className="image is-4by3">
+          <img 
+            src={product.image}
+            alt={product.name}
+          />
+        </figure>
       </div>
-      <div className="product-field">
-        <span className="product-label">Type:</span>{product.type}
-      </div>
-      <div className="product-field">
-        <span className="product-label">Price:</span>{product.price}
-      </div>
-      <div className="product-field">
-        <span className="product-label">Currency:</span>{product.currency}
-      </div>
-      <div className="product-field">
-        <span className="product-label">Image:</span>{product.image}
-      </div>
-      <div className="product-field">
-        <span className="product-label">IsOnStock:</span>{`${product.isOnStock}`}
+      <div className="card-content">
+        <div className="content">
+          <div className="title is-4">{product.name}</div>
+          <div>{product.type}</div>
+          <div>{product.price} {product.currency}</div>
+        </div>
       </div>
     </div>
   )
