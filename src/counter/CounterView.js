@@ -10,6 +10,10 @@ export const CounterView = ({counter}) => {
     }
   }, [])
 
+  useEffect(() => {
+    console.log("counter has been changed!");
+  }, [counter])
+
   return (
     <div>
       {counter}

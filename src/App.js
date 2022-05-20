@@ -1,28 +1,38 @@
 
-import {useEffect, useState} from "react";
+
 import { ProductPage } from "./components/ProductPage";
 import { ProductItem } from "./components/ProductItem";
+import { useEffect, useState } from "react";
 import { fetchProducts } from "./utils/fetchProducts";
 
 export default function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    async function getData() {
-      const products = await fetchProducts();
-      setProducts(products);
+    const fetchData = async () => {
+      const _products = await fetchProducts();
+      setProducts(_products);
     }
 
-    getData();
-  }, []);
+    fetchData();
+  }, [])
 
+  const renderProducts = () => 
+    products.map((product) => 
+      <ProductItem 
+        key={product.image} 
+        product={product}
+      />
+    )
+  
+  
   // JSX!
   return (
     <ProductPage>
-      {products.map(product =>
+      { products.map((product) => 
         <ProductItem 
           key={product.image} 
-          product={product} 
+          product={product}
         />
       )}
     </ProductPage>
