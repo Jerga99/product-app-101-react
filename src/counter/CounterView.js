@@ -8,7 +8,7 @@ export const CounterView = ({counter}) => {
     return () => {
       console.log("Cleanup of Counter View useEffect");
     }
-  })
+  }, [])
 
   return (
     <div>
