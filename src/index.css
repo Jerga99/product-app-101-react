@@ -1,5 +1,14 @@
 
 
+.image-wrapper {
+ height: 250px;
+}
+
+img.image-content {
+  height: 100%;
+  object-fit: cover;
+}
+
 .container {
   max-width: 1480px;
   margin: auto;

@@ -1,12 +1,17 @@
 
 
+const currencies = {
+  usd: "$",
+  eur: "€"
+}
+
 export function ProductItem({product}) {
- 
   return (
     <div className="card">
       <div className="card-image">
-        <figure className="image is-4by3">
+        <figure className="image image-wrapper">
           <img 
+            className="image-content"
             src={product.image}
             alt={product.name}
           />
@@ -15,8 +20,8 @@ export function ProductItem({product}) {
       <div className="card-content">
         <div className="content">
           <div className="title is-4">{product.name}</div>
-          <div>{product.type}</div>
-          <div>{product.price} {product.currency}</div>
+          <div className="subtitle is-6">@{product.type}</div>
+          <div className="is-size-5">{currencies[product.currency]}{product.price}</div>
         </div>
       </div>
     </div>
