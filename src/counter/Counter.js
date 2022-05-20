@@ -1,10 +1,18 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Counter.css";
 import { CounterView } from "./CounterView";
 
 function Counter() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("Calling useEffect in Counter");
+
+    return () => {
+      console.log("Cleanup of Counter useEffect");
+    }
+  })
   
   const increment = (inc) => {
     setCount(count + inc);
