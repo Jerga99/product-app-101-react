@@ -17,14 +17,6 @@ export default function App() {
     fetchData();
   }, [])
 
-  const renderProducts = () => 
-    products.map((product) => 
-      <ProductItem 
-        key={product.image} 
-        product={product}
-      />
-    )
-  
   
   // JSX!
   return (
