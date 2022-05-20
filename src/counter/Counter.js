@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import "./Counter.css";
+import { CounterView } from "./CounterView";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -11,8 +12,7 @@ function Counter() {
 
   return (
     <div className="counter-container">
-      <div>{count}</div>
-
+      <CounterView counter={count}/>
       <button onClick={() => increment(+100)}>
         Increment
       </button>
