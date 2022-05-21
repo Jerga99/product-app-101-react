@@ -16,6 +16,13 @@ export function ProductPage() {
 
   return (
     <div className="page">
+      <input
+        className="input mb-2"
+        style={{width: "200px"}}
+        type="text"
+        placeholder="Filter by title"
+      >
+      </input>
       <div className="columns is-multiline">
         { products.map((product) => 
           <div 
