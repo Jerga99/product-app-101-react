@@ -4,6 +4,7 @@ import { ProductPage } from "./components/ProductPage";
 import { ProductItem } from "./components/ProductItem";
 import { useEffect, useState } from "react";
 import { fetchProducts } from "./utils/fetchProducts";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -20,13 +21,16 @@ export default function App() {
   
   // JSX!
   return (
-    <ProductPage>
-      { products.map((product) => 
-        <ProductItem 
-          key={product.image} 
-          product={product}
-        />
-      )}
-    </ProductPage>
+    <>
+      <Navbar />
+      <ProductPage>
+        { products.map((product) => 
+          <ProductItem 
+            key={product.image} 
+            product={product}
+          />
+        )}
+      </ProductPage>
+    </>
   )
 }
