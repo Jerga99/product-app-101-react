@@ -4,6 +4,7 @@ import { fetchProducts } from "../utils/fetchProducts";
 
 export function ProductPage() {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,9 +15,19 @@ export function ProductPage() {
     fetchData();
   }, [])
 
+  useEffect(() => {
+    console.log(search);
+  }, [search])
+
+  const handleSearch = (event) => {
+    const {value} = event.target;
+    setSearch(value);
+  }
+
   return (
     <div className="page">
       <input
+        onChange={handleSearch}
         className="input mb-2"
         style={{width: "200px"}}
         type="text"
