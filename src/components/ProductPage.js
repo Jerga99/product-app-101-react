@@ -20,6 +20,11 @@ export function ProductPage() {
     setSearch(value);
   }
 
+  const filterProducts = (product) => {
+    const productName = product.name.toLowerCase();
+    return productName.includes(search.toLowerCase());
+  }
+
   return (
     <div className="page">
       <input
@@ -32,7 +37,7 @@ export function ProductPage() {
       </input>
       <div className="columns is-multiline">
         { products
-          .filter(product => product.name.includes(search))
+          .filter(filterProducts)
           .map((product) => 
           <div 
             className="column is-4"
