@@ -15,10 +15,6 @@ export function ProductPage() {
     fetchData();
   }, [])
 
-  useEffect(() => {
-    console.log(search);
-  }, [search])
-
   const handleSearch = (event) => {
     const {value} = event.target;
     setSearch(value);
@@ -35,7 +31,9 @@ export function ProductPage() {
       >
       </input>
       <div className="columns is-multiline">
-        { products.map((product) => 
+        { products
+          .filter(product => product.name.includes(search))
+          .map((product) => 
           <div 
             className="column is-4"
             key={product.image} 
